@@ -11,10 +11,7 @@ class _AppState extends State<App> {
   @override
   Widget build(BuildContext context) {
     return Stack(
-      children: <Widget>[
-        Menu(),
-        Calc()
-      ],
+      children: <Widget>[Menu(), Calc()],
     );
   }
 }

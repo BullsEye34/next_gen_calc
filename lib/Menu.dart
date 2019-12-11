@@ -9,11 +9,8 @@ class Menu extends StatefulWidget {
 }
 
 class _MenuState extends State<Menu> {
-
   @override
   Widget build(BuildContext context) {
-
-
     return SafeArea(
       child: Container(
         width: MediaQuery.of(context).size.width,
@@ -57,7 +54,7 @@ class _MenuState extends State<Menu> {
                 padding: EdgeInsets.only(top: 20),
                 child: FlatButton(
                     onPressed: () {
-                      _launchURL();
+                      _launchURLPrivacy();
                     },
                     child: Text(
                       "Privacy Policy",
@@ -68,6 +65,7 @@ class _MenuState extends State<Menu> {
       ),
     );
   }
+
   _launchURL() async {
     const url = 'https://www.vamshiprasad.ga';
     if (await canLaunch(url)) {
@@ -76,6 +74,14 @@ class _MenuState extends State<Menu> {
       throw 'Could not launch $url';
     }
   }
+
+  _launchURLPrivacy() async {
+    const url =
+        'https://github.com/BullsEye34/next_gen_calc/blob/master/privacy_policy_Next_Gen_Calc.md';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
 }
-
-
