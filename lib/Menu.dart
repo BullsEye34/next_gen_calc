@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:next_gen_calc/Build.dart';
 import 'package:package_info/package_info.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Menu extends StatefulWidget {
   @override
@@ -22,7 +23,9 @@ class _MenuState extends State<Menu> {
             Padding(
                 padding: EdgeInsets.only(top: 20),
                 child: FlatButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      _launchURL();
+                    },
                     child: Text(
                       "About The Developer",
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -49,11 +52,29 @@ class _MenuState extends State<Menu> {
                     child: Text(
                       "About The Build",
                       style: TextStyle(color: Colors.white, fontSize: 20.0),
-                    )))
+                    ))),
+            Padding(
+                padding: EdgeInsets.only(top: 20),
+                child: FlatButton(
+                    onPressed: () {
+                      _launchURL();
+                    },
+                    child: Text(
+                      "Privacy Policy",
+                      style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    ))),
           ],
         ),
       ),
     );
+  }
+  _launchURL() async {
+    const url = 'https://www.vamshiprasad.ga';
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 

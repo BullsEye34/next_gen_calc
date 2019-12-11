@@ -76,18 +76,24 @@ class _BuildState extends State<Build> {
     });
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
         statusBarColor: //Colors.transparent,
-        Color(0xffFF5545)
-    ));
+            Color(0xffFF5545)));
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       home: new Scaffold(
         appBar: new AppBar(
+          leading: FlatButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: Icon(
+              Icons.arrow_back,
+              color: Colors.white,
+            ),
+          ),
           backgroundColor: Color(0xffFF5545),
           title: new Text('Build Version'),
         ),
